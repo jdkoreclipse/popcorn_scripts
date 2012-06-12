@@ -18,8 +18,7 @@ if [ "$?" != "1" ]
     case $opt in
     R) sh popcorn_cc;;
     X) exit 1;;
-    *) echo "Invalid option" && sh popcorn_cc2;;
-  $opt) echo "$opt" > /sys/class/misc/colorcontrol/v1_offset && echo "V1 Offsets Set at $opt" && sh popcorn_cc2;;
+  $opt) echo "$opt" > /sys/class/misc/colorcontrol/v1_offset && echo "V1 Offsets Set at $opt" && sh popcorn_cc;;
 
 
      
