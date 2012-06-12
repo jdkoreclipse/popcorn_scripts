@@ -122,5 +122,5 @@ if [ "$?" != "1" ]
       *) echo "Invalid option" && sh popcorn_blx;;
     esac
   fi
-echo "Blx Value Set to $opt"
+echo "BLX Value Set to $opt"
 
