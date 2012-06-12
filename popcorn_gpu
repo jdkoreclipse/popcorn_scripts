@@ -1,11 +1,13 @@
 #!/bin/bash
 
+OLD=$(cat /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc)
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 		GPU Overclock                   +"
 echo "+                                                 +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
+echo "Current Setting: $OLD"
 echo "Overclock GPU to the following preset values:"
 echo "0) 307MHz--default"
 echo "1) 384MHz"

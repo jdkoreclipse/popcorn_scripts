@@ -1,13 +1,15 @@
 #!/bin/bash
 
+OLD=$(cat /sys/class/misc/touchwake/delay)
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+             Touch Wake Params                   +"
 echo "+                                                 +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
-echo "State Delay Time (this number should be a numerical value---default is 45000, 0=indefinate"
-echo "Or press R Return to TouchWake Menu or X to Exit Script"
+echo "Current Delay Time: $OLD"
+echo "State Delay Time (this number should be a numerical value---default is 45000"
+echo "Or press R to return to TouchWake Menu or X to Exit Script"
 echo
 echo
 echo

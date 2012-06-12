@@ -1,11 +1,15 @@
 #!/bin/bash
 
+OLDBOOST=$(cat /sys/class/misc/soundcontrol/volume_boost)
+OLDPERF=$(cat /sys/class/misc/soundcontrol/highperf_enabled)
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 	        Sound Control                   +"
 echo "+                                                 +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
+echo "Current Settings: Volume Boost - $OLDBOOST"
+echo "                  High Performance Mode - $OLDPERF"
 echo "0) Disable Volume Boost"
 echo "1) Enable Lowest Level of Volume Boost"
 echo "2) Enable Mid-level Volume Boost"

@@ -1,11 +1,13 @@
 #!/bin/bash
 
+OLD=$(cat /sys/class/misc/colorcontrol/v1_offset)
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 	         Gamma Offsets                     +"
 echo "+                                                 +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
+echo "Current Setting: $OLD"
 echo "Pick your offsets. Recommended values are -6 0 7"
 echo "Or Press R to return to Original Color Control Script or press X to exit the script"
 echo

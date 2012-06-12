@@ -1,11 +1,13 @@
 #!/bin/bash
 
+OLD=$(cat /sys/class/misc/touchwake/enabled
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+             Touch Wake Toggle                   +"
 echo "+                                                 +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
+echo "Current Status of TouchWake: $OLD"
 echo "1) Toggle Touch Wake (0=off 1=on)"
 echo "2) Touch Wake Params"
 echo "R) Return to Main Menu"

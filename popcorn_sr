@@ -1,17 +1,23 @@
 #!/bin/bash
 
+OLDMPU=$(cat /sys/kernel/debug/smartreflex/sr_mpu/autocomp)
+OLDCORE=$(cat /sys/kernel/debug/smartreflex/sr_core/autocomp)
+OLDIVA=$(cat /sys/kernel/debug/smartreflex/sr_iva/autocomp)
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 		Smart Reflex Toggle             +"
 echo "+                                                 +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
+echo "Current Settings: MPU - $OLDMPU"
+echo "                  IVA - $OLDIVA"
+echo "                  Core - $OLDCORE"
 echo "1) Enable SmartReflex for MPU"
 echo "2) Disable SmartReflex for MPU"
 echo "3) Enable SmartReflex for IVA"
 echo "4) Disable SmartReflex for IVA"
-echo "5) Enable SmartReflex for Core (GPU)"
-echo "6) Disable SmartReflex for Core (GPU)"
+echo "5) Enable SmartReflex for Core"
+echo "6) Disable SmartReflex for Core"
 echo "R) Return to Main Menu"
 echo "X) Exit"
 echo

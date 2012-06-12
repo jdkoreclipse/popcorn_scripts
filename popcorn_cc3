@@ -1,11 +1,15 @@
 #!/bin/bash
 
+OLDSAFE=$(cat /sys/class/misc/colorcontrol/safety_enabled)
+OLDMULT=$(cat /sys/class/misc/colorcontrol/multiplier)
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 	      Color Multipliers                 +"
 echo "+                                                 +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
+echo "Current Settings: Safety = $OLDSAFE"
+echo "                  Multipliers = $OLDMULT"
 echo "1) Enable Safety Feature"
 echo "2) Disable Safety Feature"
 echo 
