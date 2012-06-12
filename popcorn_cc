@@ -19,9 +19,9 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      1) su && sh popcorn_cc1;;
-      2) su && sh popcorn_cc2;;
-      3) su && sh popcorn_cc3;;
+      1) sh popcorn_cc1;;
+      2) sh popcorn_cc2;;
+      3) sh popcorn_cc3;;
       R) sh popcorn;;
       X) exit 1;;
      

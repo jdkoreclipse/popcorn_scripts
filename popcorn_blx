@@ -117,7 +117,7 @@ if [ "$?" != "1" ]
       98) echo "98" > /sys/class/misc/batterylifeextender/charging_limit && sh popcorn_blx;;
       99) echo "99" > /sys/class/misc/batterylifeextender/charging_limit && sh popcorn_blx;;
       100) echo "100" > /sys/class/misc/batterylifeextender/charging_limit && sh popcorn_blx;;
-      R) sh popcorn_sh;;
+      R) sh popcorn;;
       X) exit 1;;
     esac
   fi
