@@ -30,6 +30,7 @@ if [ "$?" != "1" ]
       6) echo "0" > /sys/kernel/debug/smartreflex/sr_core/autocomp && echo "SmartReflex for CORE is DISABLED" && sh popcorn_sr;;
       R) sh popcorn;;
       X) exit 1;;
+      *) echo "Invalid option" && sh popcorn_sr;;
     esac
   fi
 

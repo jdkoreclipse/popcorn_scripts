@@ -24,6 +24,7 @@ if [ "$?" != "1" ]
       3) sh popcorn_cc3;;
       R) sh popcorn;;
       X) exit 1;;
+      *) echo "Invalid option" && sh popcorn_cc;;
      
     esac
   fi

@@ -119,6 +119,7 @@ if [ "$?" != "1" ]
       100) echo "100" > /sys/class/misc/batterylifeextender/charging_limit && sh popcorn_blx;;
       R) sh popcorn;;
       X) exit 1;;
+      *) echo "Invalid option" && sh popcorn_blx;;
     esac
   fi
 echo "Blx Value Set to $opt"

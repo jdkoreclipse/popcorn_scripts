@@ -29,6 +29,7 @@ if [ "$?" != "1" ]
      10) echo "10" > /sys/devices/platform/omapdss/manager0/gamma && echo "Omap Color Control Value Set to 10" && sh popcorn_cc1;;
       R) sh popcorn_cc;;
       X) exit 1;;
+      *) echo "Invalid option" && sh popcorn_cc1;;
      
     esac
   fi

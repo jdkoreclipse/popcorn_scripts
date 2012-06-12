@@ -29,7 +29,8 @@ if [ "$?" != "1" ]
    5) echo "0" > /sys/class/misc/soundcontrol/highperf_enabled && echo "High Performance Mode Disabled" && sh popcorn_sc;;
    R) sh popcorn;;
    X) exit 1;;
-     
+   *) echo "Invalid option" && sh popcorn_sc;;     
+
     esac
   fi
 

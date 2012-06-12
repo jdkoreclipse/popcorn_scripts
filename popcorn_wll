@@ -22,6 +22,7 @@ if [ "$?" != "1" ]
       2) echo "0" > /sys/module/bcmdhd/parameters/wifi_pm && echo "Wifi Low Latency mode disabled" && sh popcorn_wll;;
       R) sh popcorn;;
       X) exit 1;;
+   *) echo "Invalid option" && sh popcorn_wll;;
      
     esac
   fi

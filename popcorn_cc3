@@ -20,9 +20,11 @@ if [ "$?" != "1" ]
     case $opt in
    1) echo "1" > /sys/class/misc/colorcontrol/safety_enabled && echo "Color Multipliers Safety Enabled" && sh popcorn_cc3;;
    2)   echo "0" > /sys/class/misc/colorcontrol/safety_enabled && echo "Color Multipliers Safety Disabled" && sh popcorn_cc3;;
-  $opt) echo "$opt" > /sys/class/misc/colorcontrol/multiplier && echo "Color Multipliers Set at $opt" && sh popcorn_cc3;;
    R) sh popcorn_cc;;
    X) exit 1;;
+   *) echo "Invalid option" && sh popcorn_cc3;;
+  $opt) echo "$opt" > /sys/class/misc/colorcontrol/multiplier && echo "Color Multipliers Set at $opt" && sh popcorn_cc3;;
+
 
      
     esac

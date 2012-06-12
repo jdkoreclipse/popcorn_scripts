@@ -22,6 +22,7 @@ if [ "$?" != "1" ]
       2) echo "0" > /sys/kernel/fast_charge/force_fast_charge && echo "Fast Charge Disabled" && sh popcorn_fc;;
       R) sh popcorn;;
       x) exit 1;;
+      *) echo "Invalid option" && sh popcorn_fc;;
 
     esac
   fi

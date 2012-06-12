@@ -16,10 +16,11 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      $opt) echo "$opt" > /sys/class/misc/touchwake/delay && echo "Your Touch Wake delay value is $opt" && sh popcorn_tw1;;
       R) sh popcorn_tw;;
       X) exit 1;;
- 
+   *) echo "Invalid option" && sh popcorn_tw1;;
+      $opt) echo "$opt" > /sys/class/misc/touchwake/delay && echo "Your Touch Wake delay value is $opt" && sh popcorn_tw1;;
+
     esac
   fi
 
