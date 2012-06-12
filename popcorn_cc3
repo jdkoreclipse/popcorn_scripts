@@ -17,9 +17,9 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-   1) echo "1" > /sys/class/misc/colorcontrol/safety_enabled 
-   2)   echo "0" > /sys/class/misc/colorcontrol/safety_enabled
-  $opt) echo "$opt" > /sys/class/misc/colorcontrol/multiplier
+   1) echo "1" > /sys/class/misc/colorcontrol/safety_enabled;;
+   2)   echo "0" > /sys/class/misc/colorcontrol/safety_enabled;;
+  $opt) echo "$opt" > /sys/class/misc/colorcontrol/multiplier;;
 
      
     esac

@@ -19,12 +19,12 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-   0) echo "0" > /sys/class/misc/soundcontrol/volume_boost
-   1) echo "1" > /sys/class/misc/soundcontrol/volume_boost
-   2) echo "2" > /sys/class/misc/soundcontrol/volume_boost
-   3) echo "3" > /sys/class/misc/soundcontrol/volume_boost
-   4) echo "1" > /sys/class/misc/soundcontrol/highperf_enabled
-   5) echo "0" > /sys/class/misc/soundcontrol/highperf_enabled
+   0) echo "0" > /sys/class/misc/soundcontrol/volume_boost;;
+   1) echo "1" > /sys/class/misc/soundcontrol/volume_boost;;
+   2) echo "2" > /sys/class/misc/soundcontrol/volume_boost;;
+   3) echo "3" > /sys/class/misc/soundcontrol/volume_boost;;
+   4) echo "1" > /sys/class/misc/soundcontrol/highperf_enabled;;
+   5) echo "0" > /sys/class/misc/soundcontrol/highperf_enabled;;
      
     esac
   fi
