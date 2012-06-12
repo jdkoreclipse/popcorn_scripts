@@ -1,5 +1,5 @@
 #!/bin/bash
-
+su
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 	         V1 Offsets                     +"
@@ -7,6 +7,7 @@ echo "+                                                 +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
 echo "Pick your offsets. Recommended values are -6 0 7"
+echo "Or Press R to return to Original Color Control Script or press X to exit the script"
 echo
 echo
 echo
@@ -15,7 +16,9 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-  $opt) echo "$opt" > /sys/class/misc/colorcontrol/v1_offset
+  $opt) echo "$opt" > /sys/class/misc/colorcontrol/v1_offset && echo "V1 Offsets Set at $opt" && sh popcorn_cc2;;
+    R) sh popcorn_cc;;
+    X) exit 1;;
 
      
     esac

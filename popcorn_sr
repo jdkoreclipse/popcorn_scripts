@@ -1,5 +1,5 @@
 #!/bin/bash
-
+su
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 		Smart Reflex Toggle             +"
@@ -12,6 +12,8 @@ echo "3) Enable SmartReflex for IVA"
 echo "4) Disable SmartReflex for IVA"
 echo "5) Enable SmartReflex for Core (GPU)"
 echo "6) Disable SmartReflex for Core (GPU)"
+echo "R) Return to Main Menu"
+echo "X) Exit"
 echo
 echo
 echo
@@ -20,12 +22,14 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      1) echo "1" > /sys/kernel/debug/smartreflex/sr_mpu/autocomp;;
-      2) echo "0" > /sys/kernel/debug/smartreflex/sr_mpu/autocomp;;
-      3) echo "1" > /sys/kernel/debug/smartreflex/sr_iva/autocomp;;
-      4) echo "0" > /sys/kernel/debug/smartreflex/sr_iva/autocomp;;
-      5) echo "1" > /sys/kernel/debug/smartreflex/sr_core/autocomp;;
-      6) echo "0" > /sys/kernel/debug/smartreflex/sr_core/autocomp;;
+      1) echo "1" > /sys/kernel/debug/smartreflex/sr_mpu/autocomp && echo "SmartReflex for MPU is ENABLED" && sh popcorn_sr;;
+      2) echo "0" > /sys/kernel/debug/smartreflex/sr_mpu/autocomp && echo "SmartReflex for MPU is DISABLED" && sh popcorn_sr;;
+      3) echo "1" > /sys/kernel/debug/smartreflex/sr_iva/autocomp && echo "SmartReflex for IVA is ENABLED" && sh popcorn_sr;;
+      4) echo "0" > /sys/kernel/debug/smartreflex/sr_iva/autocomp && echo "SmartReflex for IVA is DISABLED" && sh popcorn_sr;;
+      5) echo "1" > /sys/kernel/debug/smartreflex/sr_core/autocomp && echo "SmartReflex for CORE is ENABLED" && sh popcorn_sr;;
+      6) echo "0" > /sys/kernel/debug/smartreflex/sr_core/autocomp && echo "SmartReflex for CORE is DISABLED" && sh popcorn_sr;;
+      R) sh popcorn;;
+      X) exit 1;;
     esac
   fi
 

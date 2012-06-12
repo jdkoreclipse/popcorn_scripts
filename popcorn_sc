@@ -1,5 +1,5 @@
 #!/bin/bash
-
+su
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 	        Sound Control                   +"
@@ -12,6 +12,8 @@ echo "2) Enable Mid-level Volume Boost"
 echo "3) Enable Max Volume Boost"
 echo "4) Enable High Performance Mode"
 echo "5) Disable High Performance Mode"
+echo "R) Return to Main Menu"
+echo "X) Exit"
 echo
 echo
 echo -n "Enter option: "
@@ -19,12 +21,14 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-   0) echo "0" > /sys/class/misc/soundcontrol/volume_boost;;
-   1) echo "1" > /sys/class/misc/soundcontrol/volume_boost;;
-   2) echo "2" > /sys/class/misc/soundcontrol/volume_boost;;
-   3) echo "3" > /sys/class/misc/soundcontrol/volume_boost;;
-   4) echo "1" > /sys/class/misc/soundcontrol/highperf_enabled;;
-   5) echo "0" > /sys/class/misc/soundcontrol/highperf_enabled;;
+   0) echo "0" > /sys/class/misc/soundcontrol/volume_boost && echo "Volume Boost Disabled" && sh popcorn_sc;;
+   1) echo "1" > /sys/class/misc/soundcontrol/volume_boost && echo "Volume Boost Enabled with a Value of 1" && sh popcorn_sc;;
+   2) echo "2" > /sys/class/misc/soundcontrol/volume_boost && echo "Volume Boost Enabled with a Value of 2" && sh popcorn_sc;;
+   3) echo "3" > /sys/class/misc/soundcontrol/volume_boost && echo "Volume Boost Enabled with a Value of 3" && sh popcorn_sc;;
+   4) echo "1" > /sys/class/misc/soundcontrol/highperf_enabled && echo "High Performance Mode Enabled" && sh popcorn_sc;;
+   5) echo "0" > /sys/class/misc/soundcontrol/highperf_enabled && echo "High Performance Mode Disabled" && sh popcorn_sc;;
+   R) sh popcorn;;
+   X) exit 1;;
      
     esac
   fi

@@ -2,15 +2,12 @@
 su
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
-echo "+ 	         Color Control                  +"
+echo "+             Touch Wake Params                   +"
 echo "+                                                 +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
-echo "1) Omap Color Control"
-echo "2) V1 Offsets"
-echo "3) Color Multipliers"
-echo "R) Return to Menu Script"
-echo "X) Exit Script"
+echo "State Delay Time (this number should be a numerical value---default is 45000, 0=indefinate"
+echo "Or press R Return to TouchWake Menu or X to Exit Script"
 echo
 echo
 echo
@@ -19,12 +16,10 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      1) su && sh popcorn_cc1;;
-      2) su && sh popcorn_cc2;;
-      3) su && sh popcorn_cc3;;
-      R) sh popcorn;;
+      $opt) echo "$opt" > /sys/class/misc/touchwake/delay && echo "Your Touch Wake delay value is $opt" && sh popcorn_tw1;;
+      R) sh popcorn_tw;;
       X) exit 1;;
-     
+ 
     esac
   fi
 

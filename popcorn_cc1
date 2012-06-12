@@ -1,5 +1,5 @@
 #!/bin/bash
-
+su
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 	    Omap Color Control                  +"
@@ -7,6 +7,7 @@ echo "+                                                 +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
 echo "Pick a number from 1-10. 0=lowest contrast, 10=highest contrast"
+echo "Or press R to return to Original Color Control Menu or Press X to exit script" 
 echo
 echo
 echo
@@ -15,17 +16,19 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      0) echo "0" > /sys/devices/platform/omapdss/manager0/gamma;;
-      1) echo "1" > /sys/devices/platform/omapdss/manager0/gamma;;
-      2) echo "2" > /sys/devices/platform/omapdss/manager0/gamma;;
-      3) echo "3" > /sys/devices/platform/omapdss/manager0/gamma;;
-      4) echo "4" > /sys/devices/platform/omapdss/manager0/gamma;;
-      5) echo "5" > /sys/devices/platform/omapdss/manager0/gamma;;
-      6) echo "6" > /sys/devices/platform/omapdss/manager0/gamma;;
-      7) echo "7" > /sys/devices/platform/omapdss/manager0/gamma;;
-      8) echo "8" > /sys/devices/platform/omapdss/manager0/gamma;;
-      9) echo "9" > /sys/devices/platform/omapdss/manager0/gamma;;
-     10) echo "10" > /sys/devices/platform/omapdss/manager0/gamma;;
+      0) echo "0" > /sys/devices/platform/omapdss/manager0/gamma && echo "Omap Color Control Value Set to 0" && sh popcorn_cc1;;
+      1) echo "1" > /sys/devices/platform/omapdss/manager0/gamma && echo "Omap Color Control Value Set to 1" && sh popcorn_cc1;;
+      2) echo "2" > /sys/devices/platform/omapdss/manager0/gamma && echo "Omap Color Control Value Set to 2" && sh popcorn_cc1;;
+      3) echo "3" > /sys/devices/platform/omapdss/manager0/gamma && echo "Omap Color Control Value Set to 3" && sh popcorn_cc1;;
+      4) echo "4" > /sys/devices/platform/omapdss/manager0/gamma && echo "Omap Color Control Value Set to 4" && sh popcorn_cc1;;
+      5) echo "5" > /sys/devices/platform/omapdss/manager0/gamma && echo "Omap Color Control Value Set to 5" && sh popcorn_cc1;;
+      6) echo "6" > /sys/devices/platform/omapdss/manager0/gamma && echo "Omap Color Control Value Set to 6" && sh popcorn_cc1;;
+      7) echo "7" > /sys/devices/platform/omapdss/manager0/gamma && echo "Omap Color Control Value Set to 7" && sh popcorn_cc1;;
+      8) echo "8" > /sys/devices/platform/omapdss/manager0/gamma && echo "Omap Color Control Value Set to 8" && sh popcorn_cc1;;
+      9) echo "9" > /sys/devices/platform/omapdss/manager0/gamma && echo "Omap Color Control Value Set to 9" && sh popcorn_cc1;;
+     10) echo "10" > /sys/devices/platform/omapdss/manager0/gamma && echo "Omap Color Control Value Set to 10" && sh popcorn_cc1;;
+      R) sh popcorn_cc;;
+      X) exit 1;;
      
     esac
   fi

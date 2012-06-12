@@ -1,5 +1,5 @@
 #!/bin/bash
-
+su
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 	      Color Multipliers                 +"
@@ -10,6 +10,7 @@ echo "1) Enable Safety Feature"
 echo "2) Disable Safety Feature"
 echo 
 echo "Now pick your multipliers. Recomended values are 1604318000 1614318000 2234318000:"
+echo "Or Press R to return to Main Color Control script or press X to exit script"
 echo
 echo
 echo -n "Enter option: "
@@ -17,9 +18,11 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-   1) echo "1" > /sys/class/misc/colorcontrol/safety_enabled;;
-   2)   echo "0" > /sys/class/misc/colorcontrol/safety_enabled;;
-  $opt) echo "$opt" > /sys/class/misc/colorcontrol/multiplier;;
+   1) echo "1" > /sys/class/misc/colorcontrol/safety_enabled && echo "Color Multipliers Safety Enabled" && sh popcorn_cc3;;
+   2)   echo "0" > /sys/class/misc/colorcontrol/safety_enabled && echo "Color Multipliers Safety Disabled" && sh popcorn_cc3;;
+  $opt) echo "$opt" > /sys/class/misc/colorcontrol/multiplier && echo "Color Multipliers Set at $opt" && sh popcorn_cc3;;
+   R) sh popcorn_cc;;
+   X) exit 1;;
 
      
     esac

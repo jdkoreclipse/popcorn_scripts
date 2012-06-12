@@ -1,5 +1,5 @@
 #!/bin/bash
-
+su
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 		Fast Charge Toggle              +"
@@ -8,6 +8,8 @@ echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
 echo "1) Enable Fast Charge"
 echo "2) Disable Fast Charge"
+echo "R) Return to Main Menu"
+echo "X) Exit"
 echo
 echo
 echo
@@ -16,9 +18,11 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      1) echo "1" > /sys/kernel/fast_charge/force_fast_charge;;
-      2) echo "0" > /sys/kernel/fast_charge/force_fast_charge;;
-     
+      1) echo "1" > /sys/kernel/fast_charge/force_fast_charge && echo "Fast Charge Enabled" && sh popcorn_fc;;
+      2) echo "0" > /sys/kernel/fast_charge/force_fast_charge && echo "Fast Charge Disabled" && sh popcorn_fc;;
+      R) sh popcorn;;
+      x) exit 1;;
+
     esac
   fi
 

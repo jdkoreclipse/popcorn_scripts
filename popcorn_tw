@@ -1,13 +1,15 @@
 #!/bin/bash
-
+su
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
-echo "+             Touch Wake Toggle/Params            +"
+echo "+             Touch Wake Toggle                   +"
 echo "+                                                 +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
 echo "1) Toggle Touch Wake (0=off 1=on)"
-echo "2) State Delay Time (this number should be a numerical value---default is 45000, 0=indefinate"
+echo "2) Touch Wake Params"
+echo "R) Return to Main Menu"
+echo "X) Exit"
 echo
 echo
 echo
@@ -16,9 +18,11 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      0) echo "0" > /sys/class/misc/touchwake/enabled;;
-      1) echo "1" > /sys/class/misc/touchwake/enabled;;
-      $opt) echo "$opt" > /sys/class/misc/touchwake/delay;;
+      0) echo "0" > /sys/class/misc/touchwake/enabled && echo "TouchWake is Disabled" && sh popcorn_tw;;
+      1) echo "1" > /sys/class/misc/touchwake/enabled && echo "TouchWake is enabled" && sh popcorn_tw;;
+      2) sh popcorn_tw1;;
+      R) sh popcorn;;
+      X) exit 1;;
      
     esac
   fi

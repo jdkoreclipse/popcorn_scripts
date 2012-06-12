@@ -1,5 +1,5 @@
 #!/bin/bash
-
+su
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 	     Wifi Low-Latency Toggle            +"
@@ -8,6 +8,8 @@ echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
 echo "1) Enable Wifi Low-Latency--default"
 echo "2) Disable Wifi Low-Latency"
+echo "R) Return to Main Menu"
+echo "X) Exit Script"
 echo
 echo
 echo
@@ -16,8 +18,10 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      1) echo "1" > /sys/module/bcmdhd/parameters/wifi_pm;;
-      2) echo "1" > /sys/module/bcmdhd/parameters/wifi_pm;;
+      1) echo "1" > /sys/module/bcmdhd/parameters/wifi_pm && echo "Wifi Low Latency mode enabled" && sh popcorn_wll;;
+      2) echo "0" > /sys/module/bcmdhd/parameters/wifi_pm && echo "Wifi Low Latency mode disabled" && sh popcorn_wll;;
+      R) sh popcorn;;
+      X) exit 1;;
      
     esac
   fi
