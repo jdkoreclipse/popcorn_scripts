@@ -1,0 +1,31 @@
+#!/bin/bash
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "+                                                 +"
+echo "+ 	        Sound Control                   +"
+echo "+                                                 +"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo
+echo "0) Disable Volume Boost"
+echo "1) Enable Lowest Level of Volume Boost"
+echo "2) Enable Mid-level Volume Boost"
+echo "3) Enable Max Volume Boost"
+echo "4) Enable High Performance Mode"
+echo "5) Disable High Performance Mode"
+echo
+echo
+echo -n "Enter option: "
+read opt
+if [ "$?" != "1" ]
+  then
+    case $opt in
+   0) echo "0" > /sys/class/misc/soundcontrol/volume_boost
+   1) echo "1" > /sys/class/misc/soundcontrol/volume_boost
+   2) echo "2" > /sys/class/misc/soundcontrol/volume_boost
+   3) echo "3" > /sys/class/misc/soundcontrol/volume_boost
+   4) echo "1" > /sys/class/misc/soundcontrol/highperf_enabled
+   5) echo "0" > /sys/class/misc/soundcontrol/highperf_enabled
+     
+    esac
+  fi
+

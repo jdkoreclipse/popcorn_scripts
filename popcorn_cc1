@@ -1,0 +1,32 @@
+#!/bin/bash
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "+                                                 +"
+echo "+ 	    Omap Color Control                  +"
+echo "+                                                 +"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo
+echo "Pick a number from 1-10. 0=lowest contrast, 10=highest contrast"
+echo
+echo
+echo
+echo -n "Enter option: "
+read opt
+if [ "$?" != "1" ]
+  then
+    case $opt in
+      0) echo "0" > /sys/devices/platform/omapdss/manager0/gamma;;
+      1) echo "1" > /sys/devices/platform/omapdss/manager0/gamma;;
+      2) echo "2" > /sys/devices/platform/omapdss/manager0/gamma;;
+      3) echo "3" > /sys/devices/platform/omapdss/manager0/gamma;;
+      4) echo "4" > /sys/devices/platform/omapdss/manager0/gamma;;
+      5) echo "5" > /sys/devices/platform/omapdss/manager0/gamma;;
+      6) echo "6" > /sys/devices/platform/omapdss/manager0/gamma;;
+      7) echo "7" > /sys/devices/platform/omapdss/manager0/gamma;;
+      8) echo "8" > /sys/devices/platform/omapdss/manager0/gamma;;
+      9) echo "9" > /sys/devices/platform/omapdss/manager0/gamma;;
+     10) echo "10" > /sys/devices/platform/omapdss/manager0/gamma;;
+     
+    esac
+  fi
+

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "+                                                 +"
+echo "+ 	         Color Control                  +"
+echo "+                                                 +"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo
+echo "1) Omap Color Control"
+echo "2) V1 Offsets"
+echo "3) Color Multipliers"
+echo
+echo
+echo
+echo -n "Enter option: "
+read opt
+if [ "$?" != "1" ]
+  then
+    case $opt in
+      1) su && bash popcorn_cc1;;
+      2) su && bash popcorn_cc2;;
+      3) su && bash popcorn_cc3;;
+     
+    esac
+  fi
+

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "+                                                 +"
+echo "+ 		Fast Charge Toggle              +"
+echo "+                                                 +"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo
+echo "1) Enable Fast Charge"
+echo "2) Disable Fast Charge"
+echo
+echo
+echo
+echo -n "Enter option: "
+read opt
+if [ "$?" != "1" ]
+  then
+    case $opt in
+      1) echo "1" > /sys/kernel/fast_charge/force_fast_charge;;
+      2) echo "0" > /sys/kernel/fast_charge/force_fast_charge;;
+     
+    esac
+  fi
+

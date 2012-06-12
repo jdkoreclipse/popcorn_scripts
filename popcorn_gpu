@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "+                                                 +"
+echo "+ 		GPU Overclock                   +"
+echo "+                                                 +"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo
+echo "Overclock GPU to the following preset values:"
+echo "0) 307MHz--default"
+echo "1) 384MHz"
+echo "2) 460MHz"
+echo "3) 512MHz"
+echo
+echo
+echo
+echo -n "Enter option: "
+read opt
+if [ "$?" != "1" ]
+  then
+    case $opt in
+      0) echo "0" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc;;
+      1) echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc;;
+      2) echo "2" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc;;
+      3) echo "3" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc;;
+    esac
+  fi
+

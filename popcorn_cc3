@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "+                                                 +"
+echo "+ 	      Color Multipliers                 +"
+echo "+                                                 +"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo
+echo "1) Enable Safety Feature"
+echo "2) Disable Safety Feature"
+echo 
+echo "Now pick your multipliers. Recomended values are 1604318000 1614318000 2234318000:"
+echo
+echo
+echo -n "Enter option: "
+read opt
+if [ "$?" != "1" ]
+  then
+    case $opt in
+   1) echo "1" > /sys/class/misc/colorcontrol/safety_enabled 
+   2)   echo "0" > /sys/class/misc/colorcontrol/safety_enabled
+  $opt) echo "$opt" > /sys/class/misc/colorcontrol/multiplier
+
+     
+    esac
+  fi
+

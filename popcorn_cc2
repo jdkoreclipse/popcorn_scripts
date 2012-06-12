@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "+                                                 +"
+echo "+ 	         V1 Offsets                     +"
+echo "+                                                 +"
+echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo
+echo "Pick your offsets. Recommended values are -6 0 7"
+echo
+echo
+echo
+echo -n "Enter option: "
+read opt
+if [ "$?" != "1" ]
+  then
+    case $opt in
+  $opt) echo "$opt" > /sys/class/misc/colorcontrol/v1_offset
+
+     
+    esac
+  fi
+
