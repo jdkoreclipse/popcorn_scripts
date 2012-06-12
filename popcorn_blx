@@ -6,7 +6,7 @@ echo "+ 		BLX Parameters                  +"
 echo "+                                                 +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
-echo "Please pick a BLX Value between 1-100 (DEFAULT 100)"
+echo "Please pick a BLX Value between 1-100 (DEFAULT 100, 96 is recommended)"
 echo "OR Press R to return to the Menu Script, or Press X to exit"
 echo
 echo
