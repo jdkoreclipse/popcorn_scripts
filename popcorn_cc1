@@ -2,11 +2,11 @@
 
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
-echo "+ 	    Omap Color Control                  +"
+echo "+ 	    OMAP Gamma Control                  +"
 echo "+                                                 +"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
-echo "Pick a number from 1-10. 0=lowest contrast, 10=highest contrast"
+echo "Pick a number from 1-10. 0=lowest contrast, 10=highest contrast. Default = 0, Recommended = 6"
 echo "Or press R to return to Original Color Control Menu or Press X to exit script" 
 echo
 echo
