@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OLD=$(cat /sys/class/misc/touchwake/enabled
+OLD=$(cat /sys/class/misc/touchwake/enabled)
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+             Touch Wake Toggle                   +"
@@ -28,5 +28,4 @@ if [ "$?" != "1" ]
       *) echo "Invalid option" && sh popcorn_tw;;
      
     esac
-  fi
-
+  fi 
