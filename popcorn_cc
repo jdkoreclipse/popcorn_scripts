@@ -1,5 +1,5 @@
 #!/system/bin/sh
-
+mount -o remount,rw,noatime,nodiratime -t ext3 /dev/block/mmcblk0p25 /system
 initPath=/system/etc/init.d/99sonic
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
