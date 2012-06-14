@@ -30,16 +30,16 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      1) echo "1" > /sys/kernel/debug/smartreflex/sr_mpu/autocomp && echo "SmartReflex for MPU is ENABLED" && sleep 2 && sh popcorn_sr;;
-      2) echo "0" > /sys/kernel/debug/smartreflex/sr_mpu/autocomp && echo "SmartReflex for MPU is DISABLED" && sleep 2 && sh popcorn_sr;;
-      3) echo "1" > /sys/kernel/debug/smartreflex/sr_iva/autocomp && echo "SmartReflex for IVA is ENABLED" && sleep 2 && sh popcorn_sr;;
-      4) echo "0" > /sys/kernel/debug/smartreflex/sr_iva/autocomp && echo "SmartReflex for IVA is DISABLED" && sleep 2 && sh popcorn_sr;;
-      5) echo "1" > /sys/kernel/debug/smartreflex/sr_core/autocomp && echo "SmartReflex for CORE is ENABLED" && sleep 2 && sh popcorn_sr;;
-      6) echo "0" > /sys/kernel/debug/smartreflex/sr_core/autocomp && echo "SmartReflex for CORE is DISABLED" && sleep 2 && sh popcorn_sr;;
-      B) busybox sed -i "s|^srMPU=.*|srMPU=$OLDMPU|" $initPath && busybox sed -i "s|^srIVA=.*|srIVA=$OLDIVA|" $initPath && busybox sed -i "s|^srCORE=.*|srCORE=$OLDCORE|" $initPath && echo "Settings set on boot" && sleep 2 && sh popcorn_sr;;
-      R) sh popcorn;;
+      1) echo "1" > /sys/kernel/debug/smartreflex/sr_mpu/autocomp && echo "SmartReflex for MPU is ENABLED" && sleep 2 && sh /system/xbin/popcorn_sr;;
+      2) echo "0" > /sys/kernel/debug/smartreflex/sr_mpu/autocomp && echo "SmartReflex for MPU is DISABLED" && sleep 2 && sh /system/xbin/popcorn_sr;;
+      3) echo "1" > /sys/kernel/debug/smartreflex/sr_iva/autocomp && echo "SmartReflex for IVA is ENABLED" && sleep 2 && sh /system/xbin/popcorn_sr;;
+      4) echo "0" > /sys/kernel/debug/smartreflex/sr_iva/autocomp && echo "SmartReflex for IVA is DISABLED" && sleep 2 && sh /system/xbin/popcorn_sr;;
+      5) echo "1" > /sys/kernel/debug/smartreflex/sr_core/autocomp && echo "SmartReflex for CORE is ENABLED" && sleep 2 && sh /system/xbin/popcorn_sr;;
+      6) echo "0" > /sys/kernel/debug/smartreflex/sr_core/autocomp && echo "SmartReflex for CORE is DISABLED" && sleep 2 && sh /system/xbin/popcorn_sr;;
+      B) busybox sed -i "s|^srMPU=.*|srMPU=$OLDMPU|" $initPath && busybox sed -i "s|^srIVA=.*|srIVA=$OLDIVA|" $initPath && busybox sed -i "s|^srCORE=.*|srCORE=$OLDCORE|" $initPath && echo "Settings set on boot" && sleep 2 && sh /system/xbin/popcorn_sr;;
+      R) sh /system/xbin/popcorn;;
       X) exit 1;;
-      *) echo "Invalid option" && sleep 2 && sh popcorn_sr;;
+      *) echo "Invalid option" && sleep 2 && sh /system/xbin/popcorn_sr;;
     esac
   fi
 
