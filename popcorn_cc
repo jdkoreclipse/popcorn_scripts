@@ -20,12 +20,12 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      1) sh popcorn_cc1;;
-      2) sh popcorn_cc2;;
-      3) sh popcorn_cc3;;
-      R) sh popcorn;;
+      1) sh /system/xbin/popcorn_cc1;;
+      2) sh /system/xbin/popcorn_cc2;;
+      3) sh /system/xbin/popcorn_cc3;;
+      R) sh /system/xbin/popcorn;;
       X) exit 1;;
-      *) echo "Invalid option" && sh popcorn_cc;;
+      *) echo "Invalid option" && sh /system/xbin/popcorn_cc;;
      
     esac
   fi

@@ -23,16 +23,16 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      1) sh popcorn_sr;;
-      2) sh popcorn_gpu;;
-      3) sh popcorn_blx;;
-      4) sh popcorn_tw;;
-      5) sh popcorn_fc;;
-      6) sh popcorn_wll;;
-      7) sh popcorn_cc;;
-      8) sh popcorn_sc;;
+      1) sh /system/xbin/popcorn_sr;;
+      2) sh /system/xbin/popcorn_gpu;;
+      3) sh /system/xbin/popcorn_blx;;
+      4) sh /system/xbin/popcorn_tw;;
+      5) sh /system/xbin/popcorn_fc;;
+      6) sh /system/xbin/popcorn_wll;;
+      7) sh /system/xbin/popcorn_cc;;
+      8) sh /system/xbin/popcorn_sc;;
       X) echo "Goodbye."; echo; exit 1;;
-      *) echo "Invalid option" && sleep 2 && sh popcorn;;
+      *) echo "Invalid option" && sleep 2 && sh /system/xbin/popcorn;;
     esac
   fi
 
