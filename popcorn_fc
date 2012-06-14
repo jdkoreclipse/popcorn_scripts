@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/system/bin/sh
 
+initPath=/system/etc/init.d/99sonic
 OLD=$(cat /sys/kernel/fast_charge/force_fast_charge)
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
@@ -10,6 +11,7 @@ echo
 echo "Current Setting: $OLD"
 echo "1) Enable Fast Charge"
 echo "2) Disable Fast Charge"
+echo "B) Set Current Settings on Boot"
 echo "R) Return to Main Menu"
 echo "X) Exit"
 echo
@@ -20,12 +22,12 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      1) echo "1" > /sys/kernel/fast_charge/force_fast_charge && echo "Fast Charge Enabled" && sh popcorn_fc;;
-      2) echo "0" > /sys/kernel/fast_charge/force_fast_charge && echo "Fast Charge Disabled" && sh popcorn_fc;;
+      1) echo "1" > /sys/kernel/fast_charge/force_fast_charge && echo "Fast Charge Enabled" && sleep 2 && sh popcorn_fc;;
+      2) echo "0" > /sys/kernel/fast_charge/force_fast_charge && echo "Fast Charge Disabled" && sleep 2 && sh popcorn_fc;;
+      B) busybox sed -i "s|^ffc=.*|ffc=$OLD|" $initPath && echo "Settings set on boot" && sleep 2 && sh popcorn_fc;;
       R) sh popcorn;;
       X) exit 1;;
-      *) echo "Invalid option" && sh popcorn_fc;;
-
+      *) echo "Invalid option" && sleep 2 && sh popcorn_fc;;
     esac
   fi
 
