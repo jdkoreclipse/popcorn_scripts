@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/system/bin/sh
 
+initPath=/system/etc/init.d/99sonic
 OLD=$(cat /sys/module/bcmdhd/parameters/wifi_pm)
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
@@ -10,6 +11,7 @@ echo
 echo "Current Setting: $OLD"
 echo "1) Enable Wifi Low-Latency--default"
 echo "2) Disable Wifi Low-Latency"
+echo "B) Set Current Settings on Boot"
 echo "R) Return to Main Menu"
 echo "X) Exit Script"
 echo
@@ -20,11 +22,12 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      1) echo "Y" > /sys/module/bcmdhd/parameters/wifi_pm && echo "Wifi Low Latency mode enabled" && sh popcorn_wll;;
-      2) echo "N" > /sys/module/bcmdhd/parameters/wifi_pm && echo "Wifi Low Latency mode disabled" && sh popcorn_wll;;
+      1) echo "Y" > /sys/module/bcmdhd/parameters/wifi_pm && echo "Wifi Low Latency mode enabled" && sleep 2 && sh popcorn_wll;;
+      2) echo "N" > /sys/module/bcmdhd/parameters/wifi_pm && echo "Wifi Low Latency mode disabled" && sleep 2 && sh popcorn_wll;;
+      B) busybox sed -i "s|^wll=.*|wll=$OLD|" $initPath && echo "Settings set on boot" && sleep 2 && sh popcorn_wll;;
       R) sh popcorn;;
       X) exit 1;;
-   *) echo "Invalid option" && sh popcorn_wll;;
+   *) echo "Invalid option" && sleep 2 && sh popcorn_wll;;
      
     esac
   fi

@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/system/bin/sh
 
+initPath=/system/etc/init.d/99sonic
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 	         Color Control                  +"

@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/system/bin/sh
 
+initPath=/system/etc/init.d/99sonic
 OLD=$(cat /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc)
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
@@ -13,6 +14,7 @@ echo "0) 307MHz--default"
 echo "1) 384MHz"
 echo "2) 460MHz"
 echo "3) 512MHz"
+echo "B) Set Current Settings on Boot"
 echo "R) Return to Main Menu"
 echo "X) Exit Script"
 echo
@@ -23,13 +25,14 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      0) echo "0" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc && echo "GPU Now Clocked at 307 MHz" && sh popcorn_gpu;;
-      1) echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc && echo "GPU Now Clocked at 384 MHz" && sh popcorn_gpu;;
-      2) echo "2" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc && echo "GPU Now Clocked at 460 MHz" && sh popcorn_gpu;;
-      3) echo "3" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc && echo "GPU Now Clocked at 512 MHz" && sh popcorn_gpu;;
+      0) echo "0" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc && echo "GPU Now Clocked at 307 MHz" && sleep 2 && sh popcorn_gpu;;
+      1) echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc && echo "GPU Now Clocked at 384 MHz" && sleep 2 && sh popcorn_gpu;;
+      2) echo "2" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc && echo "GPU Now Clocked at 460 MHz" && sleep 2 && sh popcorn_gpu;;
+      3) echo "3" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc && echo "GPU Now Clocked at 512 MHz" && sleep 2 && sh popcorn_gpu;;
+      B) busybox sed -i "s|^gpuOC=.*|gpuOC=$OLD|" $initPath && echo "Settings set on boot" && sleep 2 && sh popcorn_gpu;;
       R) sh popcorn;;
       X) exit 1;;
-      *) echo "Invalid option" && sh popcorn_gpu;;
+      *) echo "Invalid option" && sleep 2 && sh popcorn_gpu;;
     esac
   fi
 
