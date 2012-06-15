@@ -16,7 +16,7 @@ echo "7) Color Control"
 echo "8) Sound Control"
 echo "9) OverClocking"
 echo "10) Governor Control"
-echo "11) Voltage Control"
+echo #"11) Voltage Control"
 echo "X) Exit Script"
 echo
 echo
@@ -36,7 +36,7 @@ if [ "$?" != "1" ]
       8) sh /system/xbin/popcorn_sc;;
       9) sh /system/xbin/popcorn_oc;;
       10) sh /system/xbin/popcorn_govs;;
-      11) sh /system/xbin/popcorn_volt;;
+    #  11) sh /system/xbin/popcorn_volt;;
       X) echo "Goodbye."; echo; exit 1;;
       *) echo "Invalid option" && sleep 2 && sh /system/xbin/popcorn;;
     esac
