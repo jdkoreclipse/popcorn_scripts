@@ -1,7 +1,7 @@
 #!/system/bin/sh
 mount -o remount,rw,noatime,nodiratime -t ext3 /dev/block/mmcblk0p25 /system
 initPath=/system/etc/init.d/99sonic
-OLD=$ (cat /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table)
+OLD=$(cat /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table)
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo "+                                                 +"
 echo "+ 	       Voltage Control                  +"
@@ -20,7 +20,7 @@ if [ "$?" != "1" ]
   then
     case $opt in
      $opt) echo "$opt" > /sys/class/misc/colorcontrol/v1_offset && echo "Voltages set at $opt" && sleep 2 && sh /system/xbin/popcorn_volt;;
-      B) busybox sed -i "s|^uV=.*|uV=$OLD|" $initPath && echo "Settings set on boot" && sleep 2 && sh /system/xbin/popcorn_volt;;
+      B) sed -i "s|^uV=.*|uV=$OLD|" $initPath && echo "Settings set on boot" && sleep 2 && sh /system/xbin/popcorn_volt;;
       R) sh /system/xbin/popcorn;;
       X) exit 1;;
      

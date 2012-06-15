@@ -33,7 +33,7 @@ if [ "$?" != "1" ]
    3) echo "3" > /sys/class/misc/soundcontrol/volume_boost && echo "Volume Boost Enabled with a Value of 3" && sleep 2 && sh /system/xbin/popcorn_sc;;
    4) echo "1" > /sys/class/misc/soundcontrol/highperf_enabled && echo "High Performance Mode Enabled" && sleep 2 && sh /system/xbin/popcorn_sc;;
    5) echo "0" > /sys/class/misc/soundcontrol/highperf_enabled && echo "High Performance Mode Disabled" && sleep 2 && sh /system/xbin/popcorn_sc;;
-   B) busybox sed -i "s|^VolBoost=.*|VolBoost=$OLDBOOST|" $initPath && busybox sed -i "s|^HighPerf=.*|HighPerf=$OLDPERF|" $initPath && echo "Settings set on boot" && sleep 2 && sh /system/xbin/popcorn_sc;;
+   B) sed -i "s|^VolBoost=.*|VolBoost=$OLDBOOST|" $initPath && busybox sed -i "s|^HighPerf=.*|HighPerf=$OLDPERF|" $initPath && echo "Settings set on boot" && sleep 2 && sh /system/xbin/popcorn_sc;;
    R) sh /system/xbin/popcorn;;
    X) exit 1;;
    *) echo "Invalid option" && sleep 2 && sh /system/xbin/popcorn_sc;;     

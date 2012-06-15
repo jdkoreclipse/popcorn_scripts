@@ -20,7 +20,7 @@ read opt
 if [ "$?" != "1" ]
   then
     case $opt in
-      B) busybox sed -i "s|^TWdelay=.*|TWdelay=$OLD|" $initPath && echo "TouchWake Delay Time set on boot" && sleep 2 && sh /system/xbin/popcorn_tw1;;
+      B) sed -i "s|^TWdelay=.*|TWdelay=$OLD|" $initPath && echo "TouchWake Delay Time set on boot" && sleep 2 && sh /system/xbin/popcorn_tw1;;
       R) sh /system/xbin/popcorn_tw;;
       X) exit 1;;
       $opt) echo "$opt" > /sys/class/misc/touchwake/delay && echo "Your Touch Wake delay value is $opt" && sleep 2 && sh /system/xbin/popcorn_tw1;;

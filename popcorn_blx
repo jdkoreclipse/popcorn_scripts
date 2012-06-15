@@ -121,7 +121,7 @@ if [ "$?" != "1" ]
       98) echo "98" > /sys/class/misc/batterylifeextender/charging_limit && sh /system/xbin/popcorn_blx;;
       99) echo "99" > /sys/class/misc/batterylifeextender/charging_limit && sh /system/xbin/popcorn_blx;;
       100) echo "100" > /sys/class/misc/batterylifeextender/charging_limit && sh /system/xbin/popcorn_blx;;
-      B) busybox sed -i "s|^BLX=.*|BLX=$OLD|" $initPath && echo "Settings set on boot" && sleep 2 && sh /system/xbin/popcorn_blx;;
+      B) sed -i "s|^BLX=.*|BLX=$OLD|" $initPath && echo "Settings set on boot" && sleep 2 && sh /system/xbin/popcorn_blx;;
       R) sh /system/xbin/popcorn;;
       X) exit 1;;
       *) echo "Invalid option" && sleep 2 && sh /system/xbin/popcorn_blx;;

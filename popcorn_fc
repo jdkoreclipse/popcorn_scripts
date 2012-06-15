@@ -24,7 +24,7 @@ if [ "$?" != "1" ]
     case $opt in
       1) echo "1" > /sys/kernel/fast_charge/force_fast_charge && echo "Fast Charge Enabled" && sleep 2 && sh /system/xbin/popcorn_fc;;
       2) echo "0" > /sys/kernel/fast_charge/force_fast_charge && echo "Fast Charge Disabled" && sleep 2 && sh /system/xbin/popcorn_fc;;
-      B) busybox sed -i "s|^ffc=.*|ffc=$OLD|" $initPath && echo "Settings set on boot" && sleep 2 && sh /system/xbin/popcorn_fc;;
+      B) sed -i "s|^ffc=.*|ffc=$OLD|" $initPath && echo "Settings set on boot" && sleep 2 && sh /system/xbin/popcorn_fc;;
       R) sh /system/xbin/popcorn;;
       X) exit 1;;
       *) echo "Invalid option" && sleep 2 && sh /system/xbin/popcorn_fc;;

@@ -25,7 +25,7 @@ if [ "$?" != "1" ]
       0) echo "0" > /sys/class/misc/touchwake/enabled && echo "TouchWake is Disabled" && sleep 2 && sh /system/xbin/popcorn_tw;;
       1) echo "1" > /sys/class/misc/touchwake/enabled && echo "TouchWake is enabled" && sleep 2 && sh /system/xbin/popcorn_tw;;
       2) sh /system/xbin/popcorn_tw1;;
-      B) busybox sed -i "s|^TWstatus=.*|TWstatus=$OLD|" $initPath && echo "TouchWake Toggle set on boot" && sleep 2 && sh /system/xbin/popcorn_tw;;
+      B) sed -i "s|^TWstatus=.*|TWstatus=$OLD|" $initPath && echo "TouchWake Toggle set on boot" && sleep 2 && sh /system/xbin/popcorn_tw;;
       R) sh /system/xbin/popcorn;;
       X) exit 1;;
       *) echo "Invalid option" && sleep 2 && sh /system/xbin/popcorn_tw;;

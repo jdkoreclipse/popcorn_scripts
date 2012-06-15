@@ -29,7 +29,7 @@ if [ "$?" != "1" ]
       1) echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc && echo "GPU Now Clocked at 384 MHz" && sleep 2 && sh /system/xbin/popcorn_gpu;;
       2) echo "2" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc && echo "GPU Now Clocked at 460 MHz" && sleep 2 && sh /system/xbin/popcorn_gpu;;
       3) echo "3" > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc && echo "GPU Now Clocked at 512 MHz" && sleep 2 && sh /system/xbin/popcorn_gpu;;
-      B) busybox sed -i "s|^gpuOC=.*|gpuOC=$OLD|" $initPath && echo "Settings set on boot" && sleep 2 && sh /system/xbin/popcorn_gpu;;
+      B) sed -i "s|^gpuOC=.*|gpuOC=$OLD|" $initPath && echo "Settings set on boot" && sleep 2 && sh /system/xbin/popcorn_gpu;;
       R) sh /system/xbin/popcorn;;
       X) exit 1;;
       *) echo "Invalid option" && sleep 2 && sh /system/xbin/popcorn_gpu;;

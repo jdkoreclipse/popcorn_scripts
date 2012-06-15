@@ -50,7 +50,7 @@ if [ "$?" != "1" ]
      12) echo "1350000000" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq && echo "MinFreq Set to 1350MHz" && sleep 2 && sh /system/xbin/popcorn_oc;;
      13) echo "1420000000" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq && echo "MaxFreq Set to 1420MHz" && sleep 2 && sh /system/xbin/popcorn_oc;;
      14) echo "1420000000" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq && echo "MinFreq Set to 1420MHz" && sleep 2 && sh /system/xbin/popcorn_oc;;
-      B) busybox sed -i 's|^maxFreq=.*|minFreq=$OLD|' $initPath && busybox sed -i 's|^minFreq=.*|minFreq=$OLD1|' $initPath && echo "Settings set on boot" && sleep 2 && sh /system/xbin/popcorn_oc;;
+      B) sed -i 's|^maxFreq=.*|minFreq=$OLD|' $initPath && busybox sed -i 's|^minFreq=.*|minFreq=$OLD1|' $initPath && echo "Settings set on boot" && sleep 2 && sh /system/xbin/popcorn_oc;;
       R) sh /system/xbin/popcorn;;
       X) exit 1;;
    *) echo "Invalid option" && sleep 2 && sh /system/xbin/popcorn_oc;;
